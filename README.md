@@ -1,10 +1,6 @@
-# 1. 要求
-#### 将工程放在github上，完成后地址发送给我
-#### 完整的工程环境，需自行搭建
-#### 代码中包括react+redux相关、ES6、scss等
-#### 严禁抄袭代码
-#### 12月20号下午6点前截止
+# 1. 项目启动
+#### 1. git clone https://github.com/Jiajia-Yang/antd-demo.git
+#### 2. npm install
+#### 3. 开发 npm run dev, 同时 npm run mock 启动本地服务器
+#### 4. 打包 npm run build
 
-
-# 2. 需求
-#### 点击搜索，表格展示对应搜索条件（'与'的关系）的结果，点击重置，搜索项清空，表格恢复完整数据展示
