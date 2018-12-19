@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Form, Input, Select, Row, Col, Button } from 'antd'
-const Option = Select.Option;
+const {Option} = Select;
 const FormItem = Form.Item;
 const { keys } = Object;
 import './style.scss'
@@ -53,7 +53,7 @@ class FilterForm extends React.Component {
                             <FormItem {...formItemLayout} label='位置信息:'>
                                 {getFieldDecorator('position')(<Select placeholder='选择提示' width={'100%'}>
                                     {
-                                        positionList.map(item => <Option key={`position-${item.id}`} value={item.id}>{item.name}</Option>)
+                                        positionList.map(item => <Option key={`p-${item.id}`} value={item.id}>{item.name}</Option>)
                                     }
                                 </Select>)}
                             </FormItem>

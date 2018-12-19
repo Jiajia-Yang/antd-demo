@@ -7,11 +7,11 @@ module.exports = {
                 name: '杭州', 
             },
             {
-                id: 1,
+                id: 2,
                 name: '北京', 
             },
             {
-                id: 1,
+                id: 3,
                 name: '上海', 
             },
         ],

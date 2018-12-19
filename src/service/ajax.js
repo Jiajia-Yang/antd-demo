@@ -35,10 +35,11 @@ export const createApiGet = function (api, options) {
         const data = rest[0] || {}
         let success = null
         let failure = null
-        rest.map((item, i) => {
+        rest.map(item=> {
             if (typeof item === 'function') !success ? success = item : failure = item
         })
-        const apiEdit = `${api}?${Object.keys(data).map(key => `${key}=${data[key]}`).join('&')}`
+        const pamars = Object.keys(data).map(key => `${key}=${data[key]}`).join('&')
+        const apiEdit = pamars ? `${api}?${pamars}` : api
         service.get(apiEdit).then(response => response.data).then(response => successCb(response, success, failure)).catch(failCb)
     }
 }
