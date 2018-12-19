@@ -16,7 +16,13 @@ module.exports = {
         historyApiFallback: false,
         hot: false,
         host: '127.0.0.1',
-        port: PORT
+        port: PORT,
+        proxy: {
+            '/api/*': {
+              target: 'http://localhost:1111',
+              changeOrigin: true,
+            }
+        }
     },
     plugins: [
         new ExtractTextPlugin('style.[hash:4].css'),

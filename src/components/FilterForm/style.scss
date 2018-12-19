@@ -1,7 +1,11 @@
 .filter-form {
-    max-width: 1200px;
     width: 100%;
-    margin: 10px auto;
+    background-color: #ffffff;
+    &>form{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px;
+    }
     .two-btn {
         display: flex;
         flex-direction: row;

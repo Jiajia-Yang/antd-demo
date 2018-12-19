@@ -20,7 +20,8 @@ import './style.scss'
 class FilterForm extends React.Component {
 
     render() {
-        const { getFieldDecorator } = this.props.form;
+        const { positionList, onSearch, onReset, form, onChange } = this.props
+        const { getFieldDecorator } = form
         const formItemLayout = {
             labelCol: {
               xs: { span: 24 },
@@ -34,12 +35,11 @@ class FilterForm extends React.Component {
 
         return (
             <div className='filter-form'>
-                <Form onSubmit={this.props.handleSubmit}>
+                <Form>
                     <Row>
                         <Col span={8}>
                             <FormItem {...formItemLayout} label='提交人:'>
-                                {getFieldDecorator('person', {
-                                })(<Input width={'100%'} placeholder='请输入内容' type='text' />)
+                                {getFieldDecorator('person')(<Input width={'100%'} placeholder='请输入内容' type='text' />)
                                 }
                             </FormItem>
                         </Col>
@@ -51,8 +51,10 @@ class FilterForm extends React.Component {
                         </Col>
                         <Col span={8}>
                             <FormItem {...formItemLayout} label='位置信息:'>
-                                {getFieldDecorator('position')(<Select width={'100%'}>
-                                    <Option value={1}>特别急</Option>
+                                {getFieldDecorator('position')(<Select placeholder='选择提示' width={'100%'}>
+                                    {
+                                        positionList.map(item => <Option key={`position-${item.id}`} value={item.id}>{item.name}</Option>)
+                                    }
                                 </Select>)}
                             </FormItem>
                         </Col>
@@ -60,21 +62,19 @@ class FilterForm extends React.Component {
                     <Row>
                         <Col span={8}>
                             <FormItem {...formItemLayout} label='单号:'>
-                                {getFieldDecorator('order', {
-                                })(<Input width={'100%'} placeholder='请输入内容' type='text' />)}
+                                {getFieldDecorator('order')(<Input width={'100%'} placeholder='请输入内容' type='text' />)}
                             </FormItem>
                         </Col>
                         <Col span={8}>
                             <FormItem {...formItemLayout} label='审批状态:'>
-                                {getFieldDecorator('status', {
-                                })(<Input width={'100%'} placeholder='请输入内容' type='text' />)}
+                                {getFieldDecorator('status')(<Input width={'100%'} placeholder='请输入内容' type='text' />)}
                             </FormItem>
                         </Col>
                         <Col span={8}>
                             <FormItem>
                                 <div className='two-btn'>
-                                    <Button type='primary' htmlType='submit'>搜索</Button>
-                                    <Button style={{ marginLeft: '10px' }} onClick={this.props.reset}>重置</Button>
+                                    <Button type='primary' onClick={onSearch}>搜索</Button>
+                                    <Button style={{ marginLeft: '10px' }} onClick={onReset}>重置</Button>
                                 </div>
                             </FormItem>
                         </Col>

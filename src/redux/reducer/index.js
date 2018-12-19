@@ -1,26 +1,38 @@
 import { combineReducers } from 'redux'
 import { handleActions } from 'redux-actions'
+import { REQUESTPOSITIONLISTSTART, REQUESTPOSITIONLISTEND, REQUESTTABLELISTSTART, REQUESTTABLELISTEND, FORMCHANGE } from '../actions/constants'
 
 const reducers = {
-    tableList: handleActions({
-        'request table list'(state, action) {
-          const { req, res } = action.payload
-          return { list: res }
+    tableList: handleActions({ 
+        [REQUESTTABLELISTSTART]: (state, action) => {
+            return { ...state, loading: true }
         },
-    }, {list: []}),
+        [REQUESTTABLELISTEND]: (state, action) => {
+            const { list } = action.payload.res.data
+            return { list, loading: false }
+        }
+    }, {list: [] }),
+
+    positionList: handleActions({ 
+        [REQUESTPOSITIONLISTSTART]: (state, action) => {
+            return { ...state, loading: true }
+        },
+        [REQUESTPOSITIONLISTEND]: (state, action) => {
+            const { list } = action.payload.res.data
+            return { list, loading: false }
+        }
+    }, {list: [] }),
 
     filterData: handleActions({
-        'request table list'(state, action) {
-          const { req, res } = action.payload
-          return { data: res }
-        },
-    }, {
-        person: '', urgent: '', position: '', order: '', status: ''
-    }),
+        [FORMCHANGE]: (state, action) => {
+            const { payload } = action
+            state = payload ? Object.assign(state, action.payload) : {}
+            return { ...state }
+        }
+    }, {}),
 }
 
-const rootReducer = combineReducers({
-  ...reducers
+export default  combineReducers({
+    ...reducers
 })
 
-export default rootReducer

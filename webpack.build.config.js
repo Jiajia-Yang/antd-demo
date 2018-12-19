@@ -9,7 +9,7 @@ function resolve (relatedPath) {
 
 module.exports = {
     ...configBase,
-    mode: 'development',
+    mode: 'production',
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, './index.html')

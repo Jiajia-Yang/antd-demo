@@ -17,11 +17,8 @@ module.exports = {
             '@src': path.join(__dirname, './src'),
             '@actions': path.join(__dirname, './src/redux/actions'),
             '@reducers': path.join(__dirname, './src/redux/reducers'),
-            '@apis': path.join(__dirname, './src/apis'),
+            '@service': path.join(__dirname, './src/service'),
             '@components': path.join(__dirname, './src/components'),
-            '@configs': path.join(__dirname, './src/configs'),
-            '@config': path.join(__dirname, './src/configs/config.js'),
-            '@ajax': path.join(__dirname, './src/configs/ajax.js'),
         }
     },
     resolveLoader: {
@@ -38,7 +35,6 @@ module.exports = {
             {
                 test : /\.css$/,
                 loader : 'style-loader!css-loader'
-                // [path][name]_[local]_[hash:base64:5]也可以
             },
             {
                 test: /\.scss/,
@@ -55,8 +51,8 @@ module.exports = {
 
     optimization: {
         splitChunks: {
-            name: 'common', // 入口文件名
-            filename: 'common.[hash:4].js', // 打包后的文件名
+            name: 'common',
+            filename: 'common.[hash:4].js',
             minChunks: 1,
             chunks: "initial",
         }

@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import FilterForm from './components/FilterForm'
-import { message, Layout, Table } from 'antd'
+import { message, Layout, Table, Spin} from 'antd'
+import { requestTableList, requestpositionList, onFormChange } from './redux/actions/'
 
 const { Header, Footer, Content } = Layout;
 const columns = [{
@@ -32,28 +33,53 @@ const columns = [{
 
 
 @connect((state, props) => {
-    const { tableList, filterData } = state
-    return { tableList, filterData }
+    const { tableList, filterData, positionList } = state
+    return { tableList, filterData, positionList }
 })
 class App extends React.Component {
 
     componentDidMount() {
-
+        this.getTableList()
+        this.getPositionList()
     }
 
     handleFormChange(val) {
-        console.log(val)
+        this.props.dispatch(onFormChange(val))
+    }
+
+    async handlReset() {
+        await this.handleFormChange(false)
+        this.getTableList()
+    }
+
+    getTableList() {
+        const { filterData } = this.props
+        this.props.dispatch(requestTableList({...filterData}, _ => _, err => { throw new Error(err.msg) }
+        ))
+    }
+
+    getPositionList() {
+        this.props.dispatch(requestpositionList({}, _ => _, err => { throw new Error(err.msg) }
+        ))
     }
 
     render() {
-        const { filterData, tableList } = this.props
-        console.log(this.props)
+        const { filterData, tableList, positionList } = this.props
         return (
             <Layout>
                 <Header>Header</Header>
                 <Content className='content'>
-                    <FilterForm data={filterData} onChange={this.handleFormChange.bind(this)} />
-                    <Table dataSource={tableList.list} columns={columns} />
+                    <FilterForm 
+                        positionList={positionList.list} 
+                        data={filterData} 
+                        onReset={this.handlReset.bind(this)}
+                        onSearch={this.getTableList.bind(this)}
+                        onChange={this.handleFormChange.bind(this)} />
+                    <Spin spinning={tableList.loading}>
+                        <div className='table-wrap'>
+                            <Table pagination={false} rowKey={rowData => rowData.id} dataSource={tableList.list} columns={columns} />
+                        </div>
+                    </Spin>
                 </Content>
                 <Footer>Footer</Footer>
             </Layout>
