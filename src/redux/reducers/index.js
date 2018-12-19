@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { handleActions } from 'redux-actions'
-import { REQUESTPOSITIONLISTSTART, REQUESTPOSITIONLISTEND, REQUESTTABLELISTSTART, REQUESTTABLELISTEND, FORMCHANGE } from '../actions/constants'
+import { REQUESTPOSITIONLISTSTART, REQUESTPOSITIONLISTEND, REQUESTTABLELISTSTART, REQUESTTABLELISTEND, FORMCHANGE } from '@actions/constants'
 
 const reducers = {
     tableList: handleActions({ 

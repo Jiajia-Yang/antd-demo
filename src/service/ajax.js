@@ -4,7 +4,6 @@ import { message } from 'antd'
 const axiosConfig = {
     baseURL: '/',
     timeout: 1000,
-    headers: {'X-Requested-With': 'XMLHttpRequest'},
     validateStatus: status => status >= 200 && status < 300,
 }
 
@@ -35,18 +34,13 @@ export const createApiGet = function (api, options) {
         const data = rest[0] || {}
         let success = null
         let failure = null
-        rest.map(item=> {
+        rest.forEach(item=> {
             if (typeof item === 'function') !success ? success = item : failure = item
         })
         const pamars = Object.keys(data).map(key => `${key}=${data[key]}`).join('&')
         const apiEdit = pamars ? `${api}?${pamars}` : api
         service.get(apiEdit).then(response => response.data).then(response => successCb(response, success, failure)).catch(failCb)
     }
-}
-
-export const createApiPost = function (api, options) {
-    if (typeof api === 'function') return api
-    return service.post(api).then(response => successCb(response, success, failure)).catch(failCb)
 }
 
 export const createAjaxAction = (createdApi, startAction, endAction) => (request = {}, resolve, reject) => (dispatch) => {

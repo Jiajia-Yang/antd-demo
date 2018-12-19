@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions'
 import { createApiGet, createAjaxAction } from '@service/ajax'
-import { REQUESTPOSITIONLISTSTART, REQUESTPOSITIONLISTEND, REQUESTTABLELISTSTART, REQUESTTABLELISTEND, FORMCHANGE } from './constants'
+import { REQUESTPOSITIONLISTSTART, REQUESTPOSITIONLISTEND, REQUESTTABLELISTSTART, REQUESTTABLELISTEND, FORMCHANGE } from '@actions/constants'
 
 
 const tableStart = createAction(REQUESTTABLELISTSTART)

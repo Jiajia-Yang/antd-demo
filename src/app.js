@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import FilterForm from './components/FilterForm'
+import FilterForm from '@components/FilterForm'
 import { message, Layout, Table, Spin} from 'antd'
-import { requestTableList, requestpositionList, onFormChange } from './redux/actions/'
+import { requestTableList, requestpositionList, onFormChange } from '@actions'
 
 const { Header, Footer, Content } = Layout;
 const columns = [{
