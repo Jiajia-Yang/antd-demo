@@ -35,7 +35,7 @@ const columns = [{
 @connect((state, props) => {
     const { tableList, filterData, positionList } = state
     return { tableList, filterData, positionList }
-})
+},{ requestTableList, requestpositionList, onFormChange })
 class App extends React.Component {
 
     componentDidMount() {
@@ -44,7 +44,7 @@ class App extends React.Component {
     }
 
     handleFormChange(val) {
-        this.props.dispatch(onFormChange(val))
+        this.props.onFormChange(val)
     }
 
     async handlReset() {
@@ -54,13 +54,13 @@ class App extends React.Component {
 
     getTableList() {
         const { filterData } = this.props
-        this.props.dispatch(requestTableList({...filterData}, _ => _, err => { throw new Error(err.msg) }
-        ))
+        this.props.requestTableList({...filterData}, _ => _, err => { throw new Error(err.msg) }
+        )
     }
 
     getPositionList() {
-        this.props.dispatch(requestpositionList({}, _ => _, err => { throw new Error(err.msg) }
-        ))
+        this.props.requestpositionList({}, _ => _, err => { throw new Error(err.msg) }
+        )
     }
 
     render() {
