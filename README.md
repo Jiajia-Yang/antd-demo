@@ -10,6 +10,9 @@
 
 
 # 2. 项目配置
-  #### 1. react + redux，
+  #### 1. react + redux + scss
+  #### 2. mock服务器采用express模块
+  
+
 
 
