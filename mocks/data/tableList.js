@@ -8,7 +8,7 @@ module.exports = {
                 urgent: '很紧急', 
                 position: '这里', 
                 order: 'XW0987655', 
-                status: '未审核'
+                status: '未审批'
             },
             {
                 id: 2,
@@ -16,7 +16,7 @@ module.exports = {
                 urgent: '很紧急', 
                 position: '这里', 
                 order: 'XW0987655', 
-                status: '未审核'
+                status: '未审批'
             },
             {
                 id: 3,
@@ -24,7 +24,7 @@ module.exports = {
                 urgent: '很紧急', 
                 position: '这里', 
                 order: 'XW0987655', 
-                status: '未审核'
+                status: '未审批'
             },
             {
                 id: 4,
@@ -32,7 +32,7 @@ module.exports = {
                 urgent: '很紧急', 
                 position: '这里', 
                 order: 'XW0987655', 
-                status: '未审核'
+                status: '未审批'
             },
             {
                 id: 5,
@@ -40,7 +40,7 @@ module.exports = {
                 urgent: '很紧急', 
                 position: '这里', 
                 order: 'XW0987655', 
-                status: '未审核'
+                status: '未审批'
             },
             {
                 id: 6,
@@ -48,7 +48,7 @@ module.exports = {
                 urgent: '很紧急', 
                 position: '这里', 
                 order: 'XW0987655', 
-                status: '未审核'
+                status: '未审批'
             },
             {
                 id: 7,
@@ -56,7 +56,7 @@ module.exports = {
                 urgent: '很紧急', 
                 position: '这里', 
                 order: 'XW0987655', 
-                status: '未审核'
+                status: '未审批'
             },
             {
                 id: 8,
@@ -64,7 +64,7 @@ module.exports = {
                 urgent: '很紧急', 
                 position: '这里', 
                 order: 'XW0987655', 
-                status: '未审核'
+                status: '未审批'
             },
         ],
     },
