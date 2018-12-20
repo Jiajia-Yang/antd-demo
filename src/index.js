@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -14,8 +13,8 @@ const initialState = {};
 const store = applyMiddleware(thunkMiddleware)(createStore)(rootReducer, initialState);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('app')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('app')
 );

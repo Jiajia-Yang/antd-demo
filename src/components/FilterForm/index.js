@@ -16,7 +16,7 @@ const { keys } = Object;
     const defaultVal = {};
     const { data } = props;
     keys(data).forEach((key) => {
-      defaultVal[key] = Form.createFormField({ value: data[key] })
+      defaultVal[key] = Form.createFormField({ value: data[key] });
     });
     return defaultVal;
   },
