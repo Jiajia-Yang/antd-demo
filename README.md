@@ -7,3 +7,9 @@
 #### 4. 打包 npm run build，打包后的文件放在dist目录下
 
 
+
+
+# 2. 项目配置
+  #### 1. react + redux，
+
+
