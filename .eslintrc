@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "eslint-config-ali",
+    "plugin:react/recommended"
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "mocha": true
+  },
+  "globals": {
+    "GLOBAL": true
+  },
+  "rules": {
+    "max-len": [ "warn", {
+      "code": 120,
+      "ignorePattern": "^\\s*<"
+    }]
+  },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "16.6.3"
+    }
+  }
+}
