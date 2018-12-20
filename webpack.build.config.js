@@ -3,10 +3,6 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-function resolve (relatedPath) {
-    return path.join(__dirname, relatedPath)
-}
-
 module.exports = {
     ...configBase,
     mode: 'production',
