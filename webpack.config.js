@@ -13,6 +13,7 @@ module.exports = {
     extensions: ['.js', '.json'],
     alias: {
       '@src': path.join(__dirname, './src'),
+      '@pages': path.join(__dirname, './src/pages'),
       '@actions': path.join(__dirname, './src/redux/actions'),
       '@reducers': path.join(__dirname, './src/redux/reducers'),
       '@service': path.join(__dirname, './src/service'),
